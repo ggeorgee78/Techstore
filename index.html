@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TechStore — Інтернет-магазин електроніки</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+  <!-- Шапка сайту -->
+  <header class="header">
+    <div class="container header-content">
+      <div class="logo">
+        <i class="fa-solid class-bolt logo-icon"></i>
+        <span>TechStore</span>
+      </div>
+
+      <div class="search-bar">
+        <i class="fa-solid fa-magnifying-glass search-icon"></i>
+        <input type="text" id="searchInput" placeholder="Пошук товарів (наприклад, iPhone, PS5)...">
+      </div>
+
+      <div class="nav-actions">
+        <button class="icon-btn" id="themeToggle" title="Змінити тему">
+          <i class="fa-solid fa-moon"></i>
+        </button>
+        <button class="icon-btn" id="favsBtn" title="Обране">
+          <i class="fa-solid fa-heart"></i>
+          <span class="badge" id="favCount">0</span>
+        </button>
+        <button class="icon-btn" id="cartBtn" title="Кошик">
+          <i class="fa-solid fa-cart-shopping"></i>
+          <span class="badge" id="cartCount">0</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Головний контент -->
+  <main class="container main-layout">
+    <!-- Бічна панель фільтрів -->
+    <aside class="sidebar">
+      <div class="filter-section">
+        <h3>Категорії</h3>
+        <ul class="filter-list" id="categoryFilter">
+          <li class="active" data-cat="all">Усі товари</li>
+          <li data-cat="phones">Смартфони</li>
+          <li data-cat="laptops">Ноутбуки та ПК</li>
+          <li data-cat="gaming">Геймінг та Консолі</li>
+          <li data-cat="smarthome">Розумний дім</li>
+          <li data-cat="audio">Аудіо & Навушники</li>
+        </ul>
+      </div>
+
+      <div class="filter-section">
+        <h3>Максимальна ціна</h3>
+        <div class="price-range">
+          <input type="range" id="priceRange" min="1000" max="80000" step="1000" value="80000">
+          <div class="price-labels">
+            <span>0 грн</span>
+            <span id="priceValue">80 000 грн</span>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Склейка товару -->
+    <section class="products-section">
+      <div class="section-header">
+        <h2 id="sectionTitle">Усі товари</h2>
+        <span class="product-count" id="productCount">Показано 0 товарів</span>
+      </div>
+      <div class="products-grid" id="productsGrid"></div>
+    </section>
+  </main>
+
+  <!-- Модальне вікно кошика -->
+  <div class="modal" id="cartModal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2>Кошик</h2>
+        <button class="close-btn" id="closeCart">&times;</button>
+      </div>
+      <div class="modal-body" id="cartItems"></div>
+      <div class="cart-promo">
+        <input type="text" id="promoInput" placeholder="Промокод (спробуй UKR10)">
+        <button id="applyPromoBtn">Застосувати</button>
+      </div>
+      <div class="modal-footer">
+        <div class="cart-total">
+          <span>Разом:</span>
+          <strong id="cartTotalPrice">0 грн</strong>
+        </div>
+        <button class="btn btn-primary" id="checkoutBtn">Оформити замовлення</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Модальне вікно деталей товару -->
+  <div class="modal" id="productModal">
+    <div class="modal-content modal-lg">
+      <button class="close-btn" id="closeProduct">&times;</button>
+      <div class="product-detail-body" id="productDetailContent"></div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
