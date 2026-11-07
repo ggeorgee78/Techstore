@@ -45,7 +45,7 @@
 
     productsGrid.innerHTML = "";
     if (productCount) {
-      productCount.textContent = Показано ${filtered.length} товарів;
+      productCount.textContent = 'Показано ${filtered.length} товарів';
     }
 
     if (filtered.length === 0) {
