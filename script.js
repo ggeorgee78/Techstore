@@ -49,7 +49,7 @@
     }
 
     if (filtered.length === 0) {
-      productsGrid.innerHTML = <p class="no-products" style="color: #fff; grid-column: 1 / -1; text-align: center; padding: 20px;">Нічого не знайдено</p>;
+      productsGrid.innerHTML = `<p class="no-products" style="color: #fff; grid-column: 1 / -1; text-align: center; padding: 20px;">Нічого не знайдено</p>`;
       return;
     }
 
