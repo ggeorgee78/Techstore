@@ -3,79 +3,120 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>TechStore</title>
-  <!-- Иконки FontAwesome для сердечек и корзины -->
+  <title>TechStore — Інтернет-магазин електроніки</title>
+  <!-- Подключаем иконки FontAwesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="stylesheet" href="style.css">
 </head>
-<body style="background: #12121a; color: #fff; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; padding: 20px;">
+<body>
 
-  <!-- Шапка -->
-  <header style="max-width: 1200px; margin: 0 auto 30px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px; border-bottom: 1px solid #2a2a3c; padding-bottom: 20px;">
-    <h1 style="margin: 0; color: #38bdf8; font-size: 28px;">TechStore</h1>
+  <!-- Шапка сайта -->
+  <header class="header">
+    <div class="container header-container">
+      <a href="#" class="logo">
+        <i class="fa-solid fa-microchip"></i> Tech<span>Store</span>
+      </a>
 
-    <!-- Поиск -->
-    <div style="flex: 1; max-width: 400px; position: relative;">
-      <input type="text" id="searchInput" placeholder="Пошук товарів..." style="width: 100%; padding: 10px 15px; border-radius: 8px; border: 1px solid #334155; background: #1e1e2f; color: #fff; outline: none; box-sizing: border-box;">
-    </div>
-
-    <!-- Кнопки избранного и корзины -->
-    <div style="display: flex; gap: 15px;">
-      <div style="background: #1e1e2f; padding: 8px 15px; border-radius: 8px; display: flex; align-items: center; gap: 8px;">
-        <i class="fa-solid fa-heart" style="color: #ef4444;"></i>
-        <span id="favCount">0</span>
+      <div class="search-box">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <input type="text" id="searchInput" placeholder="Пошук товарів (наприклад, iPhone, RTX)...">
       </div>
-      <button id="cartBtn" style="background: #38bdf8; color: #000; border: none; padding: 8px 15px; border-radius: 8px; font-weight: bold; cursor: pointer; display: flex; align-items: center; gap: 8px;">
-        <i class="fa-solid fa-cart-shopping"></i>
-        <span>Кошик</span> (<span id="cartCount">0</span>)
-      </button>
+
+      <div class="header-actions">
+        <!-- Переключатель валют -->
+        <select id="currencySelect" class="currency-select" title="Оберіть валюту">
+          <option value="UAH">UAH (₴)</option>
+          <option value="USD">USD ($)</option>
+          <option value="EUR">EUR (€)</option>
+        </select>
+
+        <!-- Кнопка Избранного -->
+        <button id="favBtn" class="action-btn" title="Обрані товари">
+          <i class="fa-solid fa-heart"></i>
+          <span id="favCount" class="badge">0</span>
+        </button>
+
+        <!-- Кнопка Корзины -->
+        <button id="cartBtn" class="action-btn" title="Кошик">
+          <i class="fa-solid fa-cart-shopping"></i>
+          <span id="cartCount" class="badge">0</span>
+        </button>
+      </div>
     </div>
   </header>
 
   <!-- Основной контент -->
-  <div style="max-width: 1200px; margin: 0 auto; display: flex; gap: 30px; flex-wrap: wrap;">
-    
+  <main class="container main-layout">
     <!-- Боковая панель фильтров -->
-    <aside style="width: 250px; background: #1e1e2f; padding: 20px; border-radius: 12px; height: fit-content; box-sizing: border-box;">
-      <h3 style="margin-top: 0; color: #38bdf8; font-size: 18px;">Категорії</h3>
-      <ul id="categoryFilter" style="list-style: none; padding: 0; margin: 0 0 25px 0;">
-        <li data-cat="all" class="active" style="padding: 10px; margin-bottom: 5px; border-radius: 6px; cursor: pointer; background: #38bdf8; color: #000; font-weight: bold;">Всі товари</li>
-        <li data-cat="phones" style="padding: 10px; margin-bottom: 5px; border-radius: 6px; cursor: pointer; color: #cbd5e1;">Смартфони</li>
-        <li data-cat="laptops" style="padding: 10px; margin-bottom: 5px; border-radius: 6px; cursor: pointer; color: #cbd5e1;">Ноутбуки / ПК</li>
-        <li data-cat="gaming" style="padding: 10px; margin-bottom: 5px; border-radius: 6px; cursor: pointer; color: #cbd5e1;">Геймінг</li>
-        <li data-cat="smarthome" style="padding: 10px; margin-bottom: 5px; border-radius: 6px; cursor: pointer; color: #cbd5e1;">Розумний Дім</li>
-        <li data-cat="audio" style="padding: 10px; margin-bottom: 5px; border-radius: 6px; cursor: pointer; color: #cbd5e1;">Аудіо</li>
-      </ul>
+    <aside class="sidebar">
+      <div class="filter-block">
+        <h3>Категорії</h3>
+        <ul id="categoryFilter" class="category-list">
+          <li data-cat="all" class="active"><i class="fa-solid fa-border-all"></i> Всі товари</li>
+          <li data-cat="phones"><i class="fa-solid fa-mobile-screen"></i> Смартфони</li>
+          <li data-cat="laptops"><i class="fa-solid fa-laptop"></i> Ноутбуки та ПК</li>
+          <li data-cat="gaming"><i class="fa-solid fa-gamepad"></i> Геймінг</li>
+          <li data-cat="smarthome"><i class="fa-solid fa-house-signal"></i> Розумний дім</li>
+          <li data-cat="audio"><i class="fa-solid fa-headphones"></i> Аудіо</li>
+        </ul>
+      </div>
 
-      <h3 style="color: #38bdf8; font-size: 18px; margin-bottom: 10px;">Макс. ціна</h3>
-      <div>
-        <input type="range" id="priceRange" min="1000" max="150000" step="1000" value="150000" style="width: 100%; accent-color: #38bdf8; cursor: pointer;">
-        <div id="priceValue" style="text-align: right; margin-top: 5px; font-weight: bold; color: #38bdf8;">80 000 грн</div>
+      <div class="filter-block">
+        <h3>Максимальна ціна</h3>
+        <div class="price-slider-container">
+          <input type="range" id="priceRange" min="5000" max="150000" step="1000" value="150000">
+          <div class="price-display">
+            До: <span id="priceValue">150 000 грн</span>
+          </div>
+        </div>
       </div>
     </aside>
 
-    <!-- Сетка товаров -->
-    <main style="flex: 1; min-width: 300px;">
-      <div id="productCount" style="margin-bottom: 15px; color: #94a3b8; font-size: 14px;"></div>
-      <div id="productsGrid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 20px;"></div>
-    </main>
-
-  </div>
-
-  <!-- Модальное окно корзины -->
-  <div id="cartModal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.7); justify-content: center; align-items: center; z-index: 1000;">
-    <div style="background: #1e1e2f; width: 90%; max-width: 500px; border-radius: 12px; padding: 25px; box-sizing: border-box; position: relative;">
-      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
-        <h2 style="margin: 0; color: #38bdf8;">Ваш кошик</h2>
-        <button id="closeCart" style="background: transparent; border: none; color: #fff; font-size: 20px; cursor: pointer;">&times;</button>
+    <!-- Секция с товарами -->
+    <section class="catalog">
+      <div class="catalog-header">
+        <h2>Каталог товарів</h2>
+        <span id="productCount" class="product-count">Показано 8 товарів</span>
       </div>
 
-      <!-- Контейнер для списков товаров в корзине -->
-      <div id="cartItems" style="max-height: 300px; overflow-y: auto; margin-bottom: 20px;"></div>
+      <!-- Сюда JS рендерит карточки -->
+      <div id="productsGrid" class="products-grid"></div>
+    </section>
+  </main>
 
-      <div style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid #333; padding-top: 15px;">
-        <span style="font-size: 18px;">Разом:</span>
-        <span id="cartTotalPrice" style="font-size: 20px; font-weight: bold; color: #38bdf8;">0 грн</span>
+  <!-- Модальное окно Корзины -->
+  <div id="cartModal" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2><i class="fa-solid fa-cart-shopping"></i> Ваш кошик</h2>
+        <button id="closeCart" class="close-btn"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+
+      <div id="cartItems" class="modal-body">
+        <!-- Сюда JS рендерит товары в корзине -->
+      </div>
+
+      <div class="modal-footer">
+        <div class="total-row">
+          <span>Разом до сплати:</span>
+          <span id="cartTotalPrice" class="total-price">0 грн</span>
+        </div>
+        <!-- Кнопка оформления заказа (также поддерживается вашим JS) -->
+        <button id="checkoutBtn" class="checkout-btn">Оформити замовлення</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Модальное окно Избранного -->
+  <div id="favModal" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2><i class="fa-solid fa-heart" style="color: #ef4444;"></i> Обрані товари</h2>
+        <button id="closeFav" class="close-btn"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+
+      <div id="favItemsContainer" class="modal-body">
+        <!-- Сюда JS рендерит лайкнутые товары -->
       </div>
     </div>
   </div>
