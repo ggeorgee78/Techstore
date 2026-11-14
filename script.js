@@ -4,9 +4,9 @@ document.addEventListener("DOMContentLoaded", () => {
     { id: 2, name: "Смартфон Samsung Galaxy S24 Ultra", category: "phones", price: 47999, img: "https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?w=500" },
     { id: 3, name: "Ноутбук Apple MacBook Air 13\" M2", category: "laptops", price: 42999, img: "https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=500" },
     { id: 4, name: "Ігрова консоль Sony PlayStation 5 Slim", category: "gaming", price: 22999, img: "https://images.unsplash.com/photo-1606813907291-d86efa9b94db?w=500" },
-    { id: 5, name: "Відеокарта ASUS ROG Strix RTX 4070 Super", category: "laptops", price: 29999, img: "https://images.unsplash.com/photo-1587202372775-e229f172b9d7?w=500" },
-    { id: 6, name: "Робот-пилосос Roborock S8 White", category: "smarthome", price: 21999, img: "https://images.unsplash.com/photo-1518640467707-6811f4a6ab73?w=500" },
-    { id: 7, name: "Холодильник Samsung Family Hub", category: "smarthome", price: 69999, img: "https://images.unsplash.com/photo-1584568694244-14fbdf83bd38?w=500" },
+    { id: 5, name: "Відеокарта ASUS ROG Strix RTX 4070 Super", category: "laptops", price: 29999, img: "https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcTO7Z0OTzd7em3Nvq-TZtefIhC4kVM-3AkAJA_76xRsdhp-UYvsaBS8avTmCxqvIiMz_AVlgfDEBp80NBiaPRQ7KX9o1ZAKLNYbpHlsCA&usqp=CAc" },
+    { id: 6, name: "Робот-пилосос Roborock S8 White", category: "smarthome", price: 21999, img: "https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcQU3rTFGia1cCjiRZALnHbjOh8-qVQMdc60_4BhUYWKykphOVplkGsZZZ1vfFt1uQHF4HhAOlNyJYtTR5B6lO-c82didkO58A_itJErwqRHtLVYWku9I3v7hiNLKv7xAQg3B_-nSLzdRjg&usqp=CAc" },
+    { id: 7, name: "Холодильник Samsung Family Hub", category: "smarthome", price: 122658 , img: "https://images.prom.ua/6333256659_w449_h430_holodilnik-samsung-family.jpg" },
     { id: 8, name: "Бездротові навушники Sony WH-1000XM5", category: "audio", price: 14999, img: "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=500" }
   ];
 
