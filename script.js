@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", () => {
   let cart = [];
   let favorites = [];
   let currentCategory = "all";
-  let maxPrice = 80000;
+  let maxPrice = 150000;
   let searchQuery = "";
 
   // Элементы из HTML
